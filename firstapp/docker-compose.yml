@@ -1,0 +1,14 @@
+version: "3"
+services:
+  db:
+    image: mysql:latest
+    environment:
+      - MYSQL_ROOT_PASSWORD=devpassword
+      - MYSQL_DATABASE=devDB
+  my-app:
+    build: .
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+
